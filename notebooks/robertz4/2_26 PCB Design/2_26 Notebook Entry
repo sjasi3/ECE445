@@ -1,0 +1,4 @@
+Work done: 
+Schematic and PCB layout done for round 1 of PCB design. 
+
+Design includes ESP32-S3, LCD screen, 11 solenoid drivers, 2 motor drivers, 1 servo connection, user IO (3 buttons and 2 indicator LED), 1 debug header, 1 USB prt, 1 programming header, and a buck converter. 
