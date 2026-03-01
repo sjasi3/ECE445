@@ -2,3 +2,12 @@ Work done:
 Schematic and PCB layout done for round 1 of PCB design. 
 
 Design includes ESP32-S3, LCD screen, 11 solenoid drivers, 2 motor drivers, 1 servo connection, user IO (3 buttons and 2 indicator LED), 1 debug header, 1 USB prt, 1 programming header, and a buck converter. 
+
+The full schematic for the round 1 PCB design is shown in Figure 1. 
+
+There are two types of drivers on this schematic. Both are MOSFET drivers with a flyback diode, but one version of the driver contains a zener diode in series with the flyback diode. This allows the voltage to be higher when
+in current decay, consuming more power and decaying the current faster than without the zener diode. The two drivers are detailed in Figure 2. As shown in Figure 2, there is a 0 ohm resistor in parallel with the zener diode,
+which allows the second driver to be converted into the first by shorting the zener diode. 
+
+The layout for the round 1 PCB design is shown in Figure 3. Overall, the layout is satisfactory. There are no errors when running DRC, no islands, and nothing to indicate that the functionality of the circuit board may be 
+compromised in any way. 
