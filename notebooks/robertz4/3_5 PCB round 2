@@ -1,0 +1,12 @@
+Changes made to PCB design: 
+
+Updated capacitor location and created fills to match datasheet recommendations for buck converter
+
+Changed 5V line to 6V line. Motor, servo, and solenoids all run at 6V, and buck converter can take 6V as input. No changes to layout. 
+
+Added touchscreen and SD card connections, removed two buttons and one led from previous user IO
+
+Notes: 
+We are using GPIO45 for the touch interrupt input. GPIO45 is a strapping input, and should be left floating on startup. However, 
+It should be able to be configured to digital input after startup. I have left the GPIO pin disconnected but it can be shorted to 
+the touch interrupt input IRQ_TOUCH through the headers. 
