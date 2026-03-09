@@ -1,3 +1,4 @@
 02/25/2026: Began and completed kicad_pcb file. PCB layout was finished. I used Robert's schematic and footprints, as well as using his initial layout of the components. I then routed all the components, ran DRC, 
 checked on the PCBway website, and uploaded .gerber files.
 03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files
+03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test air flow and speed.
