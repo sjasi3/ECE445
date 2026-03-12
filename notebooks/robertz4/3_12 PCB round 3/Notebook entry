@@ -6,4 +6,4 @@ Add 12V rail to accomodate for new 12V motor
 Added 12V to 6V buck converter (Necessary as solenoids and servo are still 6V)
 Changed motor connector to 2 pin Molex to accomodate for new motor
 
-Schematic is shown in Figure 
+Schematic is shown in Figure 4
