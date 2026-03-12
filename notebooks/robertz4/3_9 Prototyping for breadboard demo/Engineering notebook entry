@@ -4,6 +4,14 @@ Solenoids require 6V to actuate, website where we purchased them claims they wor
 Current profile on startup for the solenoids is shown in figure 5. Doesn't seem to have much inrush current, which is surprising but makes design simpler because we do not have to accomodate for large current spikes. 
 
 Pump is intended for 4.5V, but works at both 5V and 6V without noticable increase in temperature, even at high load. 
-Inrush current profile for the pump is shown in figure 6. Peaks at around 1.6 A, but levels out to around 600 mA at no load and around 800 mA under max load. 
+Inrush current profile for pump peaks at around 1.6 A, but levels out to around 600 mA at no load and around 800 mA under max load. 
 
-Created a breadboard demo capable of playing 4 notes, as well as actuating the lever on the harmonica with a servo. The motors and servos are able to be controlled over WiFi. 
+Created a breadboard demo capable of playing 4 notes, as well as actuating the lever on the harmonica with a servo. The motors and servos are able to be controlled over WiFi through a website with a simple GUI. 
+
+Problems experienced: 
+DC brushed motor in the pump generates a lot of noise, making it so the ground line is not stable. This results in the servo percieving these voltage spikes caused by noise as PWM input signals, and the servo will move
+slightly even when no servo input from the MCU. An oscilloscope plot of the servo input (low duty cycle PWM signal) and the noise (sharp current spikes) is shown in Figure 6. Solved most of the issue using a low pass
+filter that is composed of one inductor and one resistor, with the inductor in series and resistor as shunt. Inductor 100mH and resistor 4.7kOhm for a low pass filter with -3dB cutoff of 7.48Khz, which is much more than
+the servo PWM frequency, which is 50Hz, but also much less than the frequency of the noise. 
+
+For the PCB project, this may not be necessary because the buck converter will hopefully provide some noise isolation. However, we will look into noise reduction methods such as a common mode choke. 
