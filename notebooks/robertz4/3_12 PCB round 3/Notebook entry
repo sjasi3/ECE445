@@ -1,0 +1,9 @@
+Revised PCB design for round 3. 
+
+Changes made: 
+Changed SPI pins to dedicated SPI peripherals (instead of using GPIO pins)
+Add 12V rail to accomodate for new 12V motor
+Added 12V to 6V buck converter (Necessary as solenoids and servo are still 6V)
+Changed motor connector to 2 pin Molex to accomodate for new motor
+
+Schematic is shown in Figure 
