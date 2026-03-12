@@ -1,0 +1,9 @@
+Profiled 6V air pump and solenoids
+
+Solenoids require 6V to actuate, website where we purchased them claims they work at 5V. Solenoids also draw 250 mA at steady state, while datasheet claims <100 mA at steady state operating conditions. 
+Current profile on startup for the solenoids is shown in figure 5. Doesn't seem to have much inrush current, which is surprising but makes design simpler because we do not have to accomodate for large current spikes. 
+
+Pump is intended for 4.5V, but works at both 5V and 6V without noticable increase in temperature, even at high load. 
+Inrush current profile for the pump is shown in figure 6. Peaks at around 1.6 A, but levels out to around 600 mA at no load and around 800 mA under max load. 
+
+Created a breadboard demo capable of playing 4 notes, as well as actuating the lever on the harmonica with a servo. The motors and servos are able to be controlled over WiFi. 
