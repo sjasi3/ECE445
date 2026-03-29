@@ -1,0 +1,12 @@
+Changes made for round 4 PCB design: 
+
+Changed MOSFET from SSM3K339R,LF to BSS806NH6327XTSA1 for lower on resistance ~250 mohm to ~50 mohm
+Changed MOSFET footprint to accomodate for part change and for ease of soldering (SOT23-F to SOT23-3)
+Changed JST connector from XH (2.54mm spacing) to PH (2.0 mm spacing) to match solenoids, XH was the wrong connector. 
+Removed Zener diodes from motor/solenoid drivers, as testing showed no benefits. 
+Changed order of servo connection to match servo pins 
+Added bulk capacitance to motor power line
+Changed IO from single button to multiple button using a resistor ladder and an ADC pin, added pins to allow for off-PCB buttons
+Added series termination resistors to SPI signal lines to increase signal integrity
+
+Schematic and layout shown in figures 7 and 8, respecively. 
