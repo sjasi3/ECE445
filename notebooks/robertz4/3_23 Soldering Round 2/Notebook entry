@@ -1,0 +1,6 @@
+Round 1 and round 2 PCBs arrived simultaneously, so we decided to go straight to round 2 PCB. 
+
+Soldering was done using solder paste via stencil and reflow oven. There was bridging on the micro USB port and buck converter, but this was solved using flux and a soldering iron. 
+All connections were checked for continuity. 
+Programming was done via the USB port, and was successful. 
+Motor and solenoid drivers were tested and working. Servo output was tested and working. SPI devices were not tested, as we do not have them at the moment. 
