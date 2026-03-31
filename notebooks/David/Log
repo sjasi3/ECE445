@@ -1,4 +1,8 @@
 02/25/2026: Began and completed kicad_pcb file. PCB layout was finished. I used Robert's schematic and footprints, as well as using his initial layout of the components. I then routed all the components, ran DRC, 
 checked on the PCBway website, and uploaded .gerber files.
 03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files
-03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test air flow and speed.
+03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test 
+air flow and speed.
+3/24/2026: Edited HTML portion of Sean's code to create a website that can parse a MIDI file. A user uploads a MIDI file, then the code gets each note as well as its length of time, using a time difference to tell the
+harmonica when to open and close each hole. The website has three outputs - a hole open/close, a slide pushed/unpushed, and blowing/drawing air. The website sends its outputs to the esp32 by modifying the website's
+URL.
