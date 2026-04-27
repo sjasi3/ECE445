@@ -25,3 +25,23 @@ We made several attempts at mitigating this messy signal with varying degrees of
 | LC lowpass                                                                                        | RL lowpass                                                                                                                                      | Ferrite bead                                                                                                                                                | Ferrite choke                                                                                                                                            |
 | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | This barely made a difference in the signal and the servo output when the air pump was turned on. | This made the biggest difference in the servo control when the air pump was turned on. However, the signal was just as messy as the LC lowpass. | This made the biggest difference in the servo signal when the air pump was turned on, but it did not largely affect servo control when the pump was turned. | This made the motor Driver unable to turn on. We suspect that the high frequency switching/PWM of the ESP32 is unable to pass through the ferrite choke. |
+## 03/24/26
+Met with TA and soldered PCB with reflow oven. Fixed bridging on buck converter IC.
+## 03/26/26
+Cleaned up soldering on buck converter IC. Fixed bridging and cleaned up solder for USB micro B connector. Did initial programming of board. Did motor testing, LED testing, and button input testing. 
+## 04/07/26
+Fixed issue where solenoids would not turn off in software.
+Tested board revision 3 with no load, all lines and drivers appear to be working without issue. 
+Tested board revision 3 with all solenoids, but no motor load. Everything appears to be working without issue
+- TODO: test with load to see if any irregularities due to load
+- NOTE: one solenoid felt really weak during testing
+## 04/15/26
+Replacing solenoid confirms one solenoid is particularly weak. All solenoid drivers seem fully functional.
+## 04/23/26
+Tested board fully with motors, servo, and solenoid. Airflow seems to be very restricted by the solenoids and not the motors which we initially thought was the issue. The solution we will be testing is to 3D print the solenoid coverings to widen the hole so more air can flow.
+## 04/26/26
+Tested the 3D printed solenoid coverings with notable success as the harmonica is able to play louder than in previous tests. This shows that the issues stem from both the initial motor and the solenoids that were chosen for the project.
+
+Did latency testing. Latency is less than 100ms based on stopwatch reference and video analysis. Command send at 7.246 Command receive at 7.310 delta 64ms (64 ms was also the fastest the video could even react)
+![[Pasted image 20260427105839.png]]
+![[Pasted image 20260427105520.png]]
