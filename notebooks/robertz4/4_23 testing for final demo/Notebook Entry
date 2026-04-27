@@ -1,0 +1,13 @@
+A 12V DC air pump with higher flow rate was purchased (https://www.walmart.com/ip/OT-DC-AIR-PUMP/7266117287?wl13=3255&wmlspartner=wlpa&selectedSellerId=0)
+
+This air pump has a flow rate of 680L/minute, which is far greater than the 10-12 L/minute that we are getting from the previous 12V pump 
+(https://skycraftsurplus.com/products/micro-air-pump-12-volt-dc.html) and the 2.5L/minute that we were getting from the pump before that, which was a 4.5V
+(and the 2.5Lminute that we were getgging). However, this new pump has a much lower static pressure of 0.5 PSI, whereas the previous 12V pump had a static pressure of 29 PSI and the 
+4.5V pump has a static pressure of 7.98 PSI. We purchased this pump because we were having issues with flow rate, so we wanted a pump with more flow rate. 
+
+We tested the performance of this motor, but discovered that the static pressure was incredibly important to the output air flow rate. There was almost no measurable airflow at the 
+harmonica end. This is becuase pressure differential is the imortant factor for driving air through a solenoid, not air flow rate. From this test, we can conclude that the limiting 
+factor of our design is likely the solenoids and not the air pumps. This is because our air pumps already have such a high static pressure that we are not likely to have exceeded
+it in our design. A solenoid requiring a lower pressure differential would be the solution to this problem, but such solenoids are prohibitively expensive ($8-12 each, as compared
+to the $4 solenoids we are currently using). A solution could be to 3D print a different solenoid head piece, which could have a larger opening for air and therefore give more 
+airflow. 
