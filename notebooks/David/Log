@@ -1,8 +1,11 @@
 02/25/2026: Began and completed kicad_pcb file. PCB layout was finished. I used Robert's schematic and footprints, as well as using his initial layout of the components. I then routed all the components, ran DRC, 
 checked on the PCBway website, and uploaded .gerber files.
-03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files
+03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files.
 03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test 
 air flow and speed.
+3/11/2025: Worked with Robert to design a layout for the revision 3 PCB. We used Robert's schematic. In order to save space on the front side of the board, we moved the 6V buck converter to the back side of the board.
+It was also very important to keep some of the capacitors as close to the buck converter as possible in order to avoid parasitics from traces, so I immediately had vias branching off of the buck converter. Robert
+then created his own PCB layout, and we sent both to Wenjing.
 03/12/2026: Met withe the machine shop to figure out a design with Robert. We plan on using eleven solenoids, two motors (one blowing and one drawing), and a servo. We want the machine shop to design a box to hold the
 motors and block out some of the sound, as well as a box to hold the PCB and the LCD screen.
 3/24/2026: Edited HTML portion of Sean's code to create a website that can parse a MIDI file. A user uploads a MIDI file, then the code gets each note as well as its length of time, using a time difference to tell the
@@ -12,3 +15,6 @@ URL.
 and s = slide in or out. There is no way to test with the ESP32 right now.
 3/30/2026: Redesigned the five-hole solenoid holder for ten holes. Also remade the sizing so that all solenoids fit properly and will fit onto the board created by the machine shop.
 3/31/2026: Completed Rev. 3 board soldering with Sean and Robert. After we finished soldering on the front side with paste, I went back to complete the soldering for the back for the inductors and buck converters.
+4/27/2026: Did testing on new 3D-printed solenoid caps. We 3D-printed them last night for the final demo, but some of them are working better than others. We tested them in series - no solenoid, one solenoid, and two
+solenoids. One solenoid reduced our airflow by almost 50%, but the next solenoid in series did not reduce it as much. It also seemed like (from just blowing air through the solenoid) that some solenoids had a better
+seal than others.
