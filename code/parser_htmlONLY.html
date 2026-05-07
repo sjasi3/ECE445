@@ -95,39 +95,7 @@ function initHoleButtons() {
 // Run initialization when page is ready
 window.onload = initHoleButtons;
 
-// --- MIDI PLAYBACK LOGIC ---
-async function playMidi() {
-    const fileInput = document.getElementById('midi-upload');
-    if (!fileInput.files[0]) return alert("Select a MIDI file!");
 
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-        try {
-            const midi = new Midi(e.target.result);
-            log("SUCCESS: Parsed " + (midi.name || "Song"));
-            isPlaying = true;
-            document.getElementById('status').innerText = "Status: Playing...";
-
-            midi.tracks.forEach(track => {
-                if (track.notes.length === 0) return; // Skip empty tracks
-                track.notes.forEach(note => {
-                    let tOn = setTimeout(() => {
-                        if(isPlaying) triggerHarp(note.midi, 1, note.name);
-                    }, note.time * 1000);
-                    
-                    let tOff = setTimeout(() => {
-                        if(isPlaying) triggerHarp(note.midi, 0, note.name);
-                    }, (note.time + note.duration) * 1000);
-
-                    activeTimeouts.push(tOn, tOff);
-                });
-            });
-        } catch (err) {
-            log("ERROR: MIDI Parser failed. Check file format.");
-        }
-    };
-    reader.readAsArrayBuffer(fileInput.files[0]);
-}
 
 // --- HARP LOGIC TABLE (Mapping MIDI to Holes) ---
 const HARP_LOGIC = {
@@ -163,18 +131,60 @@ const HARP_LOGIC = {
     89: {h:10, a:2, s:0}, 90: {h:10, a:2, s:1}, // F6, F#6
 };
 
+// --- MIDI PLAYBACK LOGIC ---
+async function playMidi() {
+    const fileInput = document.getElementById('midi-upload');
+    if (!fileInput.files[0]) return alert("Select a MIDI file!");
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        try {
+            const midi = new Midi(e.target.result);
+            log("SUCCESS: Parsed " + (midi.name || "Song"));
+            isPlaying = true;
+            document.getElementById('status').innerText = "Status: Playing...";
+
+            midi.tracks.forEach(track => {
+                if (track.notes.length === 0) return; 
+                track.notes.forEach(note => {
+                    // FIX: Use note.velocity, not note.volume
+                    let tOn = setTimeout(() => {
+                        if(isPlaying) triggerHarp(note.midi, note.velocity, note.name);
+                    }, note.time * 1000);
+                    
+                    let tOff = setTimeout(() => {
+                        if(isPlaying) triggerHarp(note.midi, 0, note.name);
+                    }, (note.time + note.duration) * 1000);
+
+                    activeTimeouts.push(tOn, tOff);
+                });
+            });
+        } catch (err) {
+            log("ERROR: MIDI Parser failed.");
+        }
+    };
+    reader.readAsArrayBuffer(fileInput.files[0]);
+}
+
+// --- CORRECTED HARP LOGIC ---
 function triggerHarp(midiNum, volume, name) {
+    // FIX: Check 'volume' instead of undefined 'velocity'
     if (!isPlaying && volume > 0) return;
+    
     let data = HARP_LOGIC[midiNum] || {h: 0, a: 0, s: 0};
     let a_val = 0;
 
     if (volume > 0) {
-        let intensity = 100; // Standard speed
+        // Map 0.0-1.0 to 0-100 range for ESP32
+        let intensity = Math.round(volume * 100); 
         a_val = (data.a === 1) ? intensity : -intensity;
     }
 
     sendManualCmd(data.h, a_val, data.s);
-    log(`${volume > 0 ? 'ON ' : 'OFF'} | ${name} | Hole: ${data.h}`);
+    
+    if (volume > 0) {
+        log(`ON | ${name} | Hole: ${data.h} | Vol: ${Math.round(volume * 100)}%`);
+    }
 }
 
 function stopMidi() {
