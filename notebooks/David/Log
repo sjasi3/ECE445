@@ -3,6 +3,12 @@ checked on the PCBway website, and uploaded .gerber files.
 03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files
 03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test 
 air flow and speed.
+03/12/2026: Met withe the machine shop to figure out a design with Robert. We plan on using eleven solenoids, two motors (one blowing and one drawing), and a servo. We want the machine shop to design a box to hold the
+motors and block out some of the sound, as well as a box to hold the PCB and the LCD screen.
 3/24/2026: Edited HTML portion of Sean's code to create a website that can parse a MIDI file. A user uploads a MIDI file, then the code gets each note as well as its length of time, using a time difference to tell the
 harmonica when to open and close each hole. The website has three outputs - a hole open/close, a slide pushed/unpushed, and blowing/drawing air. The website sends its outputs to the esp32 by modifying the website's
 URL.
+3/23/2026: Created .MIDI file parser (HTML ONLY) for uploading and parsing the .MIDI file into notes readable by the ESP32. It will use HTTP fetch requests to read a url with modifiers h = hole number, a = blowing and drawing,
+and s = slide in or out. There is no way to test with the ESP32 right now.
+3/30/2026: Redesigned the five-hole solenoid holder for ten holes. Also remade the sizing so that all solenoids fit properly and will fit onto the board created by the machine shop.
+3/31/2026: Completed Rev. 3 board soldering with Sean and Robert. After we finished soldering on the front side with paste, I went back to complete the soldering for the back for the inductors and buck converters.
