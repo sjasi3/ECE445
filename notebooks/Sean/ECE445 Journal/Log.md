@@ -28,17 +28,21 @@ We made several attempts at mitigating this messy signal with varying degrees of
 ## 03/24/26
 Met with TA and soldered PCB with reflow oven. Fixed bridging on buck converter IC.
 ## 03/26/26
-Cleaned up soldering on buck converter IC. Fixed bridging and cleaned up solder for USB micro B connector. Did initial programming of board. Did motor testing, LED testing, and button input testing. 
+Cleaned up soldering on buck converter IC. Fixed bridging and cleaned up solder for USB micro B connector. Did initial programming of board. Did motor testing, LED testing, and button input testing. LEDs turn on as intended. Button inputs get properly detected. Servo functions. Motors were tested via bypassing the GPIO signal (physical connection rather than software test).
+## 03/31/26
+Soldered board revision 3. Did power subsystem testing. Power subsystem seems to be functional. Modules were connected together to test 6V and 3.3V power supply modules.
 ## 04/07/26
 Fixed issue where solenoids would not turn off in software.
 Tested board revision 3 with no load, all lines and drivers appear to be working without issue. 
 Tested board revision 3 with all solenoids, but no motor load. Everything appears to be working without issue
 - TODO: test with load to see if any irregularities due to load
 - NOTE: one solenoid felt really weak during testing
+## 04/13/26
+Soldered most of board revision 4 except for connectors IE JST. Tested 6V power subsystem and 3.3V power subsystem. Both system seem to be functional. ESP32 was able to be programmed as well.
 ## 04/15/26
-Replacing solenoid confirms one solenoid is particularly weak. All solenoid drivers seem fully functional.
+Replacing solenoids confirms one solenoid is particularly weak (tested on board revision 3). All solenoid drivers seem fully functional. Finished motor code functionality, needs to be tested.
 ## 04/23/26
-Tested board fully with motors, servo, and solenoid. Airflow seems to be very restricted by the solenoids and not the motors which we initially thought was the issue. The solution we will be testing is to 3D print the solenoid coverings to widen the hole so more air can flow.
+Tested board revision 4 fully with motors, servo, and solenoid. Airflow seems to be very restricted by the solenoids and not the motors which we initially thought was the issue. The solution we will be testing is to 3D print the solenoid coverings to widen the hole so more air can flow.
 ## 04/26/26
 Tested the 3D printed solenoid coverings with notable success as the harmonica is able to play louder than in previous tests. This shows that the issues stem from both the initial motor and the solenoids that were chosen for the project.
 
