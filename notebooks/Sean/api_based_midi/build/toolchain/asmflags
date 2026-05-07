@@ -1,0 +1,5 @@
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+"-specs=/home/sean/Documents/ECE445/api_based_midi/build/specs/picolibc.specs"

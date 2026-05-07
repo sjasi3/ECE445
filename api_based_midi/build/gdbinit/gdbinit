@@ -1,0 +1,2 @@
+source /home/sean/Documents/ECE445/ECE445/api_based_midi/build/gdbinit/symbols
+source /home/sean/Documents/ECE445/ECE445/api_based_midi/build/gdbinit/connect
