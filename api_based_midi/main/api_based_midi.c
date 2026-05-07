@@ -33,6 +33,8 @@ const int solenoid_pins[SCNT] = {4, 5, 6, 7, 15, 16, 17, 18, 8, 10, 14};
 #define MOTOR_PIN_A          4
 #define MOTOR_PIN_B          5
 #define SERVO_PIN            9       // GPIO for Servo Signal
+#define SOLF                 10
+#define SOLR                 0
 const int solenoid_pins[SCNT] = {21, 47, 6, 7, 15, 16, 17, 18, 8, 10};
 // }}}
 #else
@@ -87,14 +89,20 @@ esp_err_t play_api_handler(httpd_req_t *req) {
 
             if (speed > 0) {
                 // Forward
+                solenoid_state[SOLF] = 1;
+                solenoid_state[SOLR] = 0;
                 mcpwm_comparator_set_compare_value(comp_a, duty);
                 mcpwm_comparator_set_compare_value(comp_b, 0);
             } else if (speed < 0) {
                 // Reverse
+                solenoid_state[SOLR] = 1;
+                solenoid_state[SOLF] = 0;
                 mcpwm_comparator_set_compare_value(comp_a, 0);
                 mcpwm_comparator_set_compare_value(comp_b, duty);
             } else {
                 // Stop
+                solenoid_state[SOLF] = 0;
+                solenoid_state[SOLR] = 0;
                 mcpwm_comparator_set_compare_value(comp_a, 0);
                 mcpwm_comparator_set_compare_value(comp_b, 0);
             }
