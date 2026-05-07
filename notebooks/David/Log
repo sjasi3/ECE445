@@ -3,6 +3,9 @@ checked on the PCBway website, and uploaded .gerber files.
 03/05/2026: Removed DRC errors from PCB design 2, uploaded testing files.
 03/08/2026: Created and uploaded CAD files to GitHUB. Preliminary holder for harmonica, servo, and solenoids for the breadboard demo was created. Also created different nozzle sizes (1/8, 1/16, 1/12 inches) to test 
 air flow and speed.
+03/09/2026: Worked with Robert to calculate the air flow of the 4.5V DC motor from Adafruit. We used volume displacement in order to calculate the air flow - we blew the 4.5V motor into a plastic ziploc bag for 30s,
+and kept the ziploc bag sealed. We then placed the ziploc bag full of air in a tub full to the brim of water, and measured how much water was left after the bag of air pushed out water. Using the density of water,
+1g/ml, we could calculate the LPM using the equation: (water displaced [g])/(0.5 [min])/(1000 [l/g]). Using this equation, we found the air flow rate of the 4.5V Adafruit DC motor to be about 2.5 Liters per Minute.
 3/11/2025: Worked with Robert to design a layout for the revision 3 PCB. We used Robert's schematic. In order to save space on the front side of the board, we moved the 6V buck converter to the back side of the board.
 It was also very important to keep some of the capacitors as close to the buck converter as possible in order to avoid parasitics from traces, so I immediately had vias branching off of the buck converter. Robert
 then created his own PCB layout, and we sent both to Wenjing.
@@ -15,6 +18,9 @@ URL.
 and s = slide in or out. There is no way to test with the ESP32 right now.
 3/30/2026: Redesigned the five-hole solenoid holder for ten holes. Also remade the sizing so that all solenoids fit properly and will fit onto the board created by the machine shop.
 3/31/2026: Completed Rev. 3 board soldering with Sean and Robert. After we finished soldering on the front side with paste, I went back to complete the soldering for the back for the inductors and buck converters.
+04/22/2026: Picked up BlueScape Sidewinder 12V Air pump from Walmart and tested it. While it has very high air flow, it has almost no static pressure. Effectively, it's just a motor with a fan inside of a box, which
+means that it is very hard to seal any air and create static pressure. When it is powered under load, the DC motor is no longer to spin as quickly and draws more current. It was in no way suitable for our project,
+which has high air flow resistance.
 4/27/2026: Did testing on new 3D-printed solenoid caps. We 3D-printed them last night for the final demo, but some of them are working better than others. We tested them in series - no solenoid, one solenoid, and two
 solenoids. One solenoid reduced our airflow by almost 50%, but the next solenoid in series did not reduce it as much. It also seemed like (from just blowing air through the solenoid) that some solenoids had a better
 seal than others.
